@@ -5,6 +5,7 @@ import { asyncHandler } from "../../utils/asyncHandler.js";
 
 const getAllProducts = asyncHandler(async (req, res) => {
     const products = await Product.find();
+    console.log("Products from DB:", products);
 
     if (!products || products.length === 0) {
         throw new ApiError(404, "No products found");
